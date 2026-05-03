@@ -21,11 +21,14 @@ from savefree import get_down_link
 from ytdown import get_yt_down_link
 from get_df_status import get_df_status
 
-chatids = telesecrets.chat_ids
-botid = telesecrets.bot_id
+raw_ids = os.getenv('CHAT_IDS', '')
+# 2. Split, strip whitespace, and only convert if the result is actually a digit
+chat_ids = [int(x.strip()) for x in os.getenv('CHAT_IDS', '').split(',') if x.strip().isdigit()]
+
+bot_id = os.getenv('BOT_ID')
 
 # Bot token can be obtained via https://t.me/BotFather
-TOKEN = telesecrets.bot_token
+TOKEN = os.getenv('BOT_TOKEN')
 
 # All handlers should be attached to the Router (or Dispatcher)
 dp = Dispatcher()

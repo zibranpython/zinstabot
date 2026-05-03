@@ -16,7 +16,6 @@ import random
 from datetime import datetime
 import time
 
-import telesecrets
 from savefree import get_down_link
 from ytdown import get_yt_down_link
 from get_df_status import get_df_status
